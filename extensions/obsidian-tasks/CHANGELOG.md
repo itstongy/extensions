@@ -1,6 +1,6 @@
 # Obsidian Tasks Changelog
 
-## [Add Quick Add Task command] - {PR_MERGE_DATE}
+## [Add Quick Add Task command] - 2026-06-01
 
 - Add a no-view Quick Add Task command with inline reminder, date, and tags arguments.
 
