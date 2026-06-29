@@ -2,13 +2,6 @@ import { getPreferenceValues } from "@raycast/api";
 import os from "node:os";
 import path from "node:path";
 
-export type ExtensionPreferences = {
-  sketchybarPath?: string;
-  configPath?: string;
-  defaultPeekSeconds: string;
-  restorePreviousHiddenState: boolean;
-};
-
 export type ResolvedPreferences = {
   sketchybarPath: string;
   configPath: string;
@@ -51,7 +44,7 @@ export function resolvePeekSeconds(value: string | undefined, fallback = DEFAULT
 }
 
 export function getResolvedPreferences(): ResolvedPreferences {
-  const preferences = getPreferenceValues<ExtensionPreferences>();
+  const preferences = getPreferenceValues<Preferences>();
   const configuredConfigPath = preferences.configPath?.trim();
 
   return {
