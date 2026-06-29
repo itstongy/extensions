@@ -1,0 +1,126 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "sketchybar",
+  "title": "SketchyBar",
+  "description": "Inspect, control, and troubleshoot SketchyBar from Raycast.",
+  "icon": "sketchybar.png",
+  "author": "tongy",
+  "categories": [
+    "Developer Tools",
+    "System"
+  ],
+  "license": "MIT",
+  "platforms": [
+    "macOS"
+  ],
+  "keywords": [
+    "sketchybar",
+    "config",
+    "configuration",
+    "menu bar",
+    "macos",
+    "status bar"
+  ],
+  "commands": [
+    {
+      "name": "configure",
+      "title": "Configure",
+      "subtitle": "SketchyBar",
+      "description": "Open, inspect, and reload SketchyBar configuration.",
+      "mode": "view"
+    },
+    {
+      "name": "peek-menu-bar",
+      "title": "Peek Menu Bar",
+      "subtitle": "SketchyBar",
+      "description": "Briefly hide SketchyBar so you can use native macOS menu bar items, then restore the configured hidden state automatically.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "seconds",
+          "placeholder": "Seconds",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "toggle-visibility",
+      "title": "Toggle Visibility",
+      "subtitle": "SketchyBar",
+      "description": "Show or hide SketchyBar.",
+      "mode": "no-view"
+    },
+    {
+      "name": "reload-sketchybar",
+      "title": "Reload",
+      "subtitle": "SketchyBar",
+      "description": "Reload the active SketchyBar configuration.",
+      "mode": "no-view"
+    },
+    {
+      "name": "diagnostics",
+      "title": "Diagnostics",
+      "subtitle": "SketchyBar",
+      "description": "Check SketchyBar installation, configuration, and live state.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "sketchybarPath",
+      "title": "SketchyBar Path",
+      "description": "Path to the SketchyBar executable.",
+      "type": "textfield",
+      "required": false,
+      "default": "/opt/homebrew/bin/sketchybar",
+      "placeholder": "/opt/homebrew/bin/sketchybar"
+    },
+    {
+      "name": "configPath",
+      "title": "Config File",
+      "description": "Optional path to the SketchyBar config file. When set, Reload uses this file explicitly.",
+      "type": "file",
+      "required": false,
+      "placeholder": "~/.config/sketchybar/sketchybarrc"
+    },
+    {
+      "name": "defaultPeekSeconds",
+      "title": "Default Peek Duration",
+      "description": "How long SketchyBar should stay hidden when peeking at the native macOS menu bar.",
+      "type": "textfield",
+      "required": true,
+      "default": "30",
+      "placeholder": "30"
+    },
+    {
+      "name": "restorePreviousHiddenState",
+      "title": "Restore Previous Hidden State",
+      "description": "After peeking, return SketchyBar to the hidden or visible state it had before the peek started instead of always showing it.",
+      "type": "checkbox",
+      "required": false,
+      "default": true,
+      "label": "Restore the previous hidden state after peeking"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.20",
+    "@raycast/utils": "^2.2.7"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
